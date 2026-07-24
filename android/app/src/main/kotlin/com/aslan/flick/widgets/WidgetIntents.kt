@@ -1,11 +1,11 @@
-package com.mossapps.flick.widgets
+package com.aslan.flick.widgets
 
 import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.os.Build
-import com.mossapps.flick.MainActivity
+import com.aslan.flick.MainActivity
 
 internal object WidgetIntents {
 
@@ -14,7 +14,7 @@ internal object WidgetIntents {
 
     private fun broadcast(context: Context, uri: Uri, requestCode: Int): PendingIntent {
         val intent = Intent(context, WidgetActionReceiver::class.java).apply {
-            action = "com.mossapps.flick.WIDGET_ACTION"
+            action = "com.aslan.flick.WIDGET_ACTION"
             data = uri
         }
         return PendingIntent.getBroadcast(
@@ -27,7 +27,7 @@ internal object WidgetIntents {
 
     private fun activity(context: Context, uri: Uri, requestCode: Int): PendingIntent {
         val intent = Intent(context, MainActivity::class.java).apply {
-            action = "com.mossapps.flick.WIDGET_LAUNCH"
+            action = "com.aslan.flick.WIDGET_LAUNCH"
             data = uri
             addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP)
         }

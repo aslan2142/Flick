@@ -10,7 +10,7 @@ class FloatingPlayerService {
   factory FloatingPlayerService() => _instance;
   FloatingPlayerService._internal();
 
-  static const _channel = MethodChannel('com.mossapps.flick/overlay');
+  static const _channel = MethodChannel('com.aslan.flick/overlay');
 
   /// Whether the app is allowed to draw over other apps.
   Future<bool> canDrawOverlays() async {

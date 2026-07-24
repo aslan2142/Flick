@@ -3,7 +3,6 @@ plugins {
     id("kotlin-android")
     id("org.jetbrains.kotlin.plugin.compose")
     id("dev.flutter.flutter-gradle-plugin")
-    id("com.google.gms.google-services")
 }
 
 import java.io.File
@@ -16,9 +15,9 @@ if (keystoreFile.exists()) {
 }
 
 android {
-    namespace = "com.mossapps.flick"
+    namespace = "com.aslan.flick"
     compileSdk = flutter.compileSdkVersion
-    ndkVersion = flutter.ndkVersion
+    ndkVersion = "29.0.14206865"
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -35,6 +34,7 @@ android {
 
     signingConfigs {
         create("release") {
+            // Use debug signing since no release keystore (key.properties) exists
             storeFile = keystoreProperties.getProperty("storeFile")?.let { rootProject.file(it) }
             storePassword = keystoreProperties.getProperty("storePassword")
             keyAlias = keystoreProperties.getProperty("keyAlias")
@@ -45,7 +45,7 @@ android {
     }
 
     defaultConfig {
-        applicationId = "com.mossapps.flick"
+        applicationId = "com.aslan.flick"
         minSdk = 26
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode
@@ -77,7 +77,8 @@ android {
 
     buildTypes {
         release {
-            signingConfig = signingConfigs.getByName("release")
+            // Use debug signing config (no release keystore available)
+            signingConfig = signingConfigs.getByName("debug")
         }
     }
 }
@@ -206,7 +207,6 @@ tasks.named("preBuild") {
 }
 
 dependencies {
-    implementation(platform("com.google.firebase:firebase-bom:34.12.0"))
     implementation("androidx.core:core-ktx:1.13.1")
     implementation("androidx.documentfile:documentfile:1.1.0")
     implementation("androidx.media:media:1.7.0")

@@ -45,7 +45,7 @@ class LyricsSaveResult {
 
 class LyricsService {
   static const MethodChannel _storageChannel = MethodChannel(
-    'com.mossapps.flick/storage',
+    'com.aslan.flick/storage',
   );
   static const String _manualLyricsOverridesKey = 'lyrics_manual_overrides_v1';
   static const String _managedLyricsDirectoryName = 'lyrics';

@@ -1,4 +1,4 @@
-package com.mossapps.flick.audiofx
+package com.aslan.flick.audiofx
 
 import android.media.audiofx.AudioEffect
 import android.media.audiofx.DynamicsProcessing

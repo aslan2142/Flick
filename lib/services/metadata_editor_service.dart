@@ -34,7 +34,7 @@ class MetadataEditorService {
   MetadataEditorService._();
   static final MetadataEditorService instance = MetadataEditorService._();
 
-  static const _channel = MethodChannel('com.mossapps.flick/storage');
+  static const _channel = MethodChannel('com.aslan.flick/storage');
 
   Future<rust_metadata.TagReadResult?> readTags(String filePath) async {
     try {

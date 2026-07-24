@@ -12,10 +12,10 @@ import 'package:flick/core/utils/dev_log.dart';
 /// (Rust backend, non-Android, or no audio session).
 class VisualizerService {
   static const MethodChannel _methodChannel = MethodChannel(
-    'com.mossapps.flick/visualizer',
+    'com.aslan.flick/visualizer',
   );
   static const EventChannel _eventChannel = EventChannel(
-    'com.mossapps.flick/visualizer_events',
+    'com.aslan.flick/visualizer_events',
   );
 
   static const int _barCount = 48;

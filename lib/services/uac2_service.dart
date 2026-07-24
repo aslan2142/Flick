@@ -152,7 +152,7 @@ class Uac2Service {
 
   static final Uac2Service instance = Uac2Service._();
 
-  static const _channel = MethodChannel('com.mossapps.flick/uac2');
+  static const _channel = MethodChannel('com.aslan.flick/uac2');
 
   final _preferencesService = Uac2PreferencesService();
   final ValueNotifier<bool> bitPerfectEnabledNotifier = ValueNotifier(false);

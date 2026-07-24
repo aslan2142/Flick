@@ -13,11 +13,11 @@ class WidgetSyncService {
   WidgetSyncService._();
   static final WidgetSyncService instance = WidgetSyncService._();
 
-  static const String _appGroup = 'group.com.mossapps.flick.widgets';
+  static const String _appGroup = 'group.com.aslan.flick.widgets';
 
-  static const String miniPlayerProvider = 'com.mossapps.flick.widgets.MiniPlayerWidgetProvider';
-  static const String flagshipProvider = 'com.mossapps.flick.widgets.FlagshipWidgetProvider';
-  static const String compactProvider = 'com.mossapps.flick.widgets.CompactWidgetProvider';
+  static const String miniPlayerProvider = 'com.aslan.flick.widgets.MiniPlayerWidgetProvider';
+  static const String flagshipProvider = 'com.aslan.flick.widgets.FlagshipWidgetProvider';
+  static const String compactProvider = 'com.aslan.flick.widgets.CompactWidgetProvider';
 
   static const String keyFlagshipAccent = 'flick_widget_flagship_accent';
   static const String keyFlagshipShowArtist = 'flick_widget_flagship_show_artist';

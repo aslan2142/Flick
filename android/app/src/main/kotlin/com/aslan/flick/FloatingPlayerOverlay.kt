@@ -1,4 +1,4 @@
-package com.mossapps.flick
+package com.aslan.flick
 
 import android.animation.ValueAnimator
 import android.content.Context

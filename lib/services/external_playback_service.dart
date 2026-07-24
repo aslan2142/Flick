@@ -13,7 +13,7 @@ class ExternalPlaybackService {
 
   static final ExternalPlaybackService _instance = ExternalPlaybackService._();
   static const _channel = MethodChannel(
-    'com.mossapps.flick/integration',
+    'com.aslan.flick/integration',
   );
   static const _lockerPackage = 'com.mossapps.locker';
 

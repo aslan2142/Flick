@@ -1,4 +1,4 @@
-package com.mossapps.flick
+package com.aslan.flick
 
 import android.content.Context
 import android.media.AudioAttributes

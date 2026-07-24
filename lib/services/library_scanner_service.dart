@@ -106,7 +106,7 @@ class LibraryScannerService {
   final Set<String> _currentlyScanning = {};
 
   static const MethodChannel _storageChannel = MethodChannel(
-    'com.mossapps.flick/storage',
+    'com.aslan.flick/storage',
   );
 
   LibraryScannerService({

@@ -1,4 +1,4 @@
-package com.mossapps.flick.widgets
+package com.aslan.flick.widgets
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
@@ -7,7 +7,7 @@ import android.graphics.Color
 import android.text.Layout
 import android.view.View
 import android.widget.RemoteViews
-import com.mossapps.flick.R
+import com.aslan.flick.R
 
 class CompactWidgetProvider : AppWidgetProvider() {
 

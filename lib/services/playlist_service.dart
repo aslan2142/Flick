@@ -46,7 +46,7 @@ class PlaylistSourceFile {
 class PlaylistService {
   static const String _playlistsKey = 'playlists';
   static const MethodChannel _storageChannel = MethodChannel(
-    'com.mossapps.flick/storage',
+    'com.aslan.flick/storage',
   );
   static const List<String> _playlistMimeTypes = [
     'audio/x-mpegurl',

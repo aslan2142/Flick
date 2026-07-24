@@ -5,7 +5,7 @@ import 'package:flutter/services.dart';
 import '../data/repositories/recently_played_repository.dart';
 
 class CsvExportService {
-  static const _channel = MethodChannel('com.mossapps.flick/storage');
+  static const _channel = MethodChannel('com.aslan.flick/storage');
 
   Future<String?> saveCsv(ListeningRecap recap) async {
     if (!Platform.isAndroid) {

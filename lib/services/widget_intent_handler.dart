@@ -19,7 +19,7 @@ class WidgetIntentHandler {
   Future<void> attach() async {
     await detach();
 
-    _channel = const MethodChannel('com.mossapps.flick/widget');
+    _channel = const MethodChannel('com.aslan.flick/widget');
     _channel!.setMethodCallHandler((call) async {
       if (call.method == 'dispatch') {
         final uriStr = call.arguments as String?;
@@ -81,9 +81,9 @@ class WidgetIntentHandler {
     }
   }
 
-  static const _provider = 'com.mossapps.flick.widgets.MiniPlayerWidgetProvider';
-  static const _flagshipProvider = 'com.mossapps.flick.widgets.FlagshipWidgetProvider';
-  static const _compactProvider = 'com.mossapps.flick.widgets.CompactWidgetProvider';
+  static const _provider = 'com.aslan.flick.widgets.MiniPlayerWidgetProvider';
+  static const _flagshipProvider = 'com.aslan.flick.widgets.FlagshipWidgetProvider';
+  static const _compactProvider = 'com.aslan.flick.widgets.CompactWidgetProvider';
 
   Future<void> _pushWidgetState() async {
     try {

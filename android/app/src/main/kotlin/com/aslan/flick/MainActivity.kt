@@ -1,4 +1,4 @@
-package com.mossapps.flick
+package com.aslan.flick
 
 // Audio capability mapping:
 //   Kotlin "usbDac"      → Rust AudioCapability::UsbDac      / BackendType::UsbDirect
@@ -61,7 +61,7 @@ import android.os.PowerManager
 import android.os.storage.StorageManager
 import android.os.storage.StorageVolume
 import androidx.documentfile.provider.DocumentFile
-import com.mossapps.flick.audiofx.JustAudioProcessingController
+import com.aslan.flick.audiofx.JustAudioProcessingController
 import io.flutter.embedding.android.FlutterActivity
 import io.flutter.embedding.engine.FlutterEngine
 import io.flutter.embedding.engine.FlutterEngineCache
@@ -88,21 +88,21 @@ import kotlin.math.roundToInt
 import kotlin.math.min
 
 class MainActivity: FlutterActivity() {
-    private val CHANNEL = "com.mossapps.flick/storage"
-    private val PLAYER_CHANNEL = "com.mossapps.flick/player"
-    private val INTEGRATION_CHANNEL = "com.mossapps.flick/integration"
-    private val UAC2_CHANNEL = "com.mossapps.flick/uac2"
-    private val AUDIO_DEVICE_CHANNEL = "com.mossapps.flick/audio_device"
-    private val EQUALIZER_CHANNEL = "com.mossapps.flick/equalizer"
-    private val VISUALIZER_METHOD_CHANNEL = "com.mossapps.flick/visualizer"
-    private val VISUALIZER_EVENT_CHANNEL = "com.mossapps.flick/visualizer_events"
-    private val WIDGET_CHANNEL = "com.mossapps.flick/widget"
-    private val OVERLAY_CHANNEL = "com.mossapps.flick/overlay"
-    private val BLUETOOTH_CHANNEL = "com.mossapps.flick/bluetooth"
-    private val BLUETOOTH_EVENT_CHANNEL = "com.mossapps.flick/bluetooth_events"
+    private val CHANNEL = "com.aslan.flick/storage"
+    private val PLAYER_CHANNEL = "com.aslan.flick/player"
+    private val INTEGRATION_CHANNEL = "com.aslan.flick/integration"
+    private val UAC2_CHANNEL = "com.aslan.flick/uac2"
+    private val AUDIO_DEVICE_CHANNEL = "com.aslan.flick/audio_device"
+    private val EQUALIZER_CHANNEL = "com.aslan.flick/equalizer"
+    private val VISUALIZER_METHOD_CHANNEL = "com.aslan.flick/visualizer"
+    private val VISUALIZER_EVENT_CHANNEL = "com.aslan.flick/visualizer_events"
+    private val WIDGET_CHANNEL = "com.aslan.flick/widget"
+    private val OVERLAY_CHANNEL = "com.aslan.flick/overlay"
+    private val BLUETOOTH_CHANNEL = "com.aslan.flick/bluetooth"
+    private val BLUETOOTH_EVENT_CHANNEL = "com.aslan.flick/bluetooth_events"
     private val LOCKER_PACKAGE = "com.mossapps.locker"
     private val LOCKER_RETURN_URI = "locker://return?source=flick"
-    // private val CONVERTER_CHANNEL = "com.mossapps.flick/converter"
+    // private val CONVERTER_CHANNEL = "com.aslan.flick/converter"
     private val REQUEST_OPEN_DOCUMENT_TREE = 1001
     private val REQUEST_OPEN_DOCUMENT = 1003
     private val REQUEST_CREATE_DOCUMENT = 1004
@@ -156,7 +156,7 @@ class MainActivity: FlutterActivity() {
     private var visualizer: Visualizer? = null
     private var visualizerEventSink: EventChannel.EventSink? = null
     private var widgetChannel: MethodChannel? = null
-    private val HOME_WIDGET_LAUNCH_ACTION = "com.mossapps.flick.WIDGET_LAUNCH"
+    private val HOME_WIDGET_LAUNCH_ACTION = "com.aslan.flick.WIDGET_LAUNCH"
     private var a2dpProxy: BluetoothA2dp? = null
     private var developerMode: Boolean = false
     private var bluetoothEventSink: EventChannel.EventSink? = null
@@ -592,7 +592,7 @@ class MainActivity: FlutterActivity() {
             }
         }
 
-        EventChannel(flutterEngine.dartExecutor.binaryMessenger, "com.mossapps.flick/mediastore_events").setStreamHandler(
+        EventChannel(flutterEngine.dartExecutor.binaryMessenger, "com.aslan.flick/mediastore_events").setStreamHandler(
             object : EventChannel.StreamHandler {
                 override fun onListen(arguments: Any?, events: EventChannel.EventSink?) {
                     mediaStoreEventSink = events
@@ -4528,7 +4528,7 @@ class MainActivity: FlutterActivity() {
     }
 
     companion object {
-        private const val ACTION_USB_PERMISSION = "com.mossapps.flick.USB_PERMISSION"
+        private const val ACTION_USB_PERMISSION = "com.aslan.flick.USB_PERMISSION"
         private val pluginRegistrationLock = Any()
         private var registeredMainEngineIdentity: Int? = null
     }

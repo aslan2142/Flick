@@ -324,7 +324,7 @@ class PlayerService {
       RecentlyPlayedRepository();
   final ReplayPlayTracker _replayPlayTracker = ReplayPlayTracker();
   static const MethodChannel _storageChannel = MethodChannel(
-    'com.mossapps.flick/storage',
+    'com.aslan.flick/storage',
   );
   final Map<String, String> _stagedPlaybackPathCache = {};
   final Map<String, String> _convertedPlaybackPathCache = {};

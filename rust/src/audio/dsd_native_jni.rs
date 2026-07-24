@@ -9,7 +9,7 @@ static DSD_ENCODING_AVAILABLE: AtomicBool = AtomicBool::new(false);
 static DSD_TRACK_CLASS: AtomicPtr<std::ffi::c_void> = AtomicPtr::new(std::ptr::null_mut());
 
 #[cfg(target_os = "android")]
-const DSD_CLASS_NAME: &str = "com/mossapps/flick/DsdAudioTrackManager$Companion";
+const DSD_CLASS_NAME: &str = "com/aslan/flick/DsdAudioTrackManager$Companion";
 
 #[cfg(target_os = "android")]
 fn get_cached_class() -> Option<*mut std::ffi::c_void> {

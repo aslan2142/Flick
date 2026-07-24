@@ -1,11 +1,11 @@
-package com.mossapps.flick.widgets
+package com.aslan.flick.widgets
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider
 import android.content.ComponentName
 import android.content.Context
 import android.content.SharedPreferences
-import com.mossapps.flick.R
+import com.aslan.flick.R
 import kotlin.math.roundToInt
 
 internal object WidgetPrefs {

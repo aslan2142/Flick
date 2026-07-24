@@ -66,9 +66,9 @@ class UpdateCheckState {
 
 class UpdateCheckNotifier extends Notifier<UpdateCheckState> {
   static const String flickPlayStoreUrl =
-      'https://play.google.com/store/apps/details?id=com.mossapps.flick';
+      'https://play.google.com/store/apps/details?id=com.aslan.flick';
   static const String flickPlayStoreMarketUrl =
-      'market://details?id=com.mossapps.flick';
+      'market://details?id=com.aslan.flick';
   static const String flickWebsiteDownloadUrl = 'https://www.flick-player.site/';
   static const Duration _automaticRefreshCooldown = Duration(minutes: 30);
 

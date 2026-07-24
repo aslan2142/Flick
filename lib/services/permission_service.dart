@@ -9,7 +9,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 /// Uses Scoped Storage (ACTION_OPEN_DOCUMENT_TREE) for Android 10+
 /// and falls back to READ_EXTERNAL_STORAGE for Android 9-.
 class PermissionService {
-  static const _channel = MethodChannel('com.mossapps.flick/storage');
+  static const _channel = MethodChannel('com.aslan.flick/storage');
   static const _batteryNoticeDismissedKey = 'battery_optimization_notice_dismissed';
 
   /// Request storage permission based on Android version.

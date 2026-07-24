@@ -9,7 +9,7 @@ class NotificationService {
   factory NotificationService() => _instance;
   NotificationService._internal();
 
-  static const _channel = MethodChannel('com.mossapps.flick/player');
+  static const _channel = MethodChannel('com.aslan.flick/player');
 
   bool _isNotificationVisible = false;
   bool get isNotificationVisible => _isNotificationVisible;

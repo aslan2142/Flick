@@ -1,4 +1,4 @@
-package com.mossapps.flick
+package com.aslan.flick
 
 import android.app.Notification
 import android.app.NotificationChannel
@@ -21,7 +21,7 @@ import android.support.v4.media.session.MediaSessionCompat
 import android.support.v4.media.session.PlaybackStateCompat
 import androidx.core.app.NotificationCompat
 import androidx.media.app.NotificationCompat as MediaNotificationCompat
-import com.mossapps.flick.widgets.WidgetPrefs
+import com.aslan.flick.widgets.WidgetPrefs
 import io.flutter.embedding.engine.FlutterEngineCache
 import io.flutter.plugin.common.MethodChannel
 
@@ -30,14 +30,14 @@ class MusicNotificationService : Service() {
     companion object {
         const val CHANNEL_ID = "flick_music_channel"
         const val NOTIFICATION_ID = 1001
-        const val ACTION_PLAY_PAUSE = "com.mossapps.flick.PLAY_PAUSE"
-        const val ACTION_NEXT = "com.mossapps.flick.NEXT"
-        const val ACTION_PREVIOUS = "com.mossapps.flick.PREVIOUS"
-        const val ACTION_STOP = "com.mossapps.flick.STOP"
-        const val ACTION_SHUFFLE = "com.mossapps.flick.SHUFFLE"
-        const val ACTION_FAVORITE = "com.mossapps.flick.FAVORITE"
+        const val ACTION_PLAY_PAUSE = "com.aslan.flick.PLAY_PAUSE"
+        const val ACTION_NEXT = "com.aslan.flick.NEXT"
+        const val ACTION_PREVIOUS = "com.aslan.flick.PREVIOUS"
+        const val ACTION_STOP = "com.aslan.flick.STOP"
+        const val ACTION_SHUFFLE = "com.aslan.flick.SHUFFLE"
+        const val ACTION_FAVORITE = "com.aslan.flick.FAVORITE"
 
-        private const val PLAYER_CHANNEL = "com.mossapps.flick/player"
+        private const val PLAYER_CHANNEL = "com.aslan.flick/player"
     }
 
     private lateinit var mediaSession: MediaSessionCompat

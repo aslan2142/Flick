@@ -1,4 +1,4 @@
-package com.mossapps.flick.widgets
+package com.aslan.flick.widgets
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory

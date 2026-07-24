@@ -163,8 +163,8 @@ class BluetoothService {
   BluetoothService._();
   static final BluetoothService instance = BluetoothService._();
 
-  static const _channel = MethodChannel('com.mossapps.flick/bluetooth');
-  static const _events = EventChannel('com.mossapps.flick/bluetooth_events');
+  static const _channel = MethodChannel('com.aslan.flick/bluetooth');
+  static const _events = EventChannel('com.aslan.flick/bluetooth_events');
 
   /// Connect/disconnect events: maps with {event, address, name}.
   Stream<Map<Object?, Object?>> get deviceEvents =>
