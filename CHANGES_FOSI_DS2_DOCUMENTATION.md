@@ -298,10 +298,32 @@ Verified on real Fosi DS2 hardware:
 | `rust/src/audio/source.rs` | +5/-1 |
 | `lib/services/rust_audio_service.dart` | +9/-2 |
 | `lib/services/player_service.dart` | +5/-1 |
-| **Total** | **+335/-98** |
+| `android/.../MusicNotificationService.kt` | +35 |
+| **Total** | **+370/-98** |
 
 ## Architecture note
 
 The Fosi DS2 uses the USB direct (libusb) path, which bypasses AudioFlinger entirely — the same approach UAPP (USB Audio Player PRO) uses for USB DACs. The quirk fix is correct for this device class. The 0 Hz readback is a USB protocol issue (broken Savitech bridge), not an AudioFlinger issue.
 
 For internal DACs (MixerBitPerfect path), a quirk cannot fix missing sample rate information because AudioFlinger owns the device. Extending the existing DSD ALSA-direct module to PCM would be the approach for that case — a separate, future improvement.
+
+## Post-fix: screen-off audio stop on track change
+
+### Symptom
+
+After the quirk fix, the first track played fine with the screen off, but when the second track started (after the first one ended naturally), audio would stop ~2 seconds in. The app still showed "playing" state. Turning the screen back on resumed audio immediately.
+
+### Root cause
+
+The quirk changes caused the Rust audio engine to be **recreated on every track change** — the `!usb_direct_active` exclusion in `should_preserve_existing_rate` (audio_api.rs) and the `SkipClockValidation` quirk in `android_direct_output_signature` (android_direct.rs) returning a rate-specific signature instead of `None`. Before the quirk fix, the engine was reused across tracks and the USB isochronous stream never stopped.
+
+When the engine is recreated, the old USB session is torn down and a new one starts with fresh SCHED_FIFO isochronous transfer threads. These threads need the CPU to stay awake to meet their 1ms real-time deadlines. But the app never acquired a `PARTIAL_WAKE_LOCK` — the `WAKE_LOCK` permission was in the manifest but unused. ExoPlayer/just_audio acquire their own wakelocks internally; the custom Rust USB direct path does not.
+
+The first track survived screen-off because the stream was already stable before the screen turned off. The second track died because its freshly-created USB session had no wakelock, and Doze throttled the CPU enough to starve the isochronous transfers.
+
+### Fix
+
+Added a `PowerManager.WakeLock` (PARTIAL_WAKE_LOCK, non-reference-counted) to `MusicNotificationService`:
+
+- `updateWakeLock()` is called on every `onStartCommand` — acquires when `isPlaying` is true, releases when false.
+- Released in `onDestroy` and `shutdownForTaskRemoval()`.
